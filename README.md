@@ -1,140 +1,57 @@
-# KernelSU Modules Repo Example
+# LSPosed Framework
 
-[中文](docs/README_CN.md) | **English**
+[![Channel](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/LSPosed) [![Chat](https://img.shields.io/badge/Join-QQ%E9%A2%91%E9%81%93-red?logo=tencent-qq&logoColor=red)](https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&inviteCode=Xz9dJ&from=246610&biz=ka) [![Download](https://img.shields.io/github/v/release/LSPosed/LSPosed?color=orange&logoColor=orange&label=Download&logo=DocuSign)](https://github.com/LSPosed/LSPosed/releases/latest) [![Total](https://shields.io/github/downloads/LSPosed/LSPosed/total?logo=Bookmeter&label=Counts&logoColor=yellow&color=yellow)](https://github.com/LSPosed/LSPosed/releases)
 
----
+## Introduction 
 
-## Important Notes
+A Zygisk module trying to provide an ART hooking framework which delivers consistent APIs with the OG Xposed, leveraging LSPlant hooking framework.
 
-- You may only upload your own modules. If you have explicit permission from a developer to upload their module, it is fine as well, but both of you need to keep in mind that the uploader's name will be mentioned as author.
-- Modules must be compliant with the law and must not act in malicious ways. The operator of this site will not take any responsibility (or give support) for uploaded modules.
-- Only default branches will be processed.
+> Xposed is a framework for modules that can change the behavior of the system and apps without touching any APKs. That's great because it means that modules can work for different versions and even ROMs without any changes (as long as the original code was not changed too much). It's also easy to undo. As all changes are done in the memory, you just need to deactivate the module and reboot to get your original system back. There are many other advantages, but here is just one more: multiple modules can do changes to the same part of the system or app. With modified APKs, you have to choose one. No way to combine them, unless the author builds multiple APKs with different combinations.
 
-## Module Release Requirements
+## Supported Versions
 
-### Publishing Immutable Releases
+Android 8.1 ~ 17
 
-To enhance security, this organization has enabled the **Immutable Releases** feature. You will not be able to move or delete Git tags, or modify or delete release assets. Additionally, creating an immutable release automatically generates a release attestation, which is a cryptographically verifiable release record containing the release tag, commit SHA, and release assets.
+## Install
 
-> [!NOTE]
-> Immutable releases include protection against repository resurrection attacks. Even if the repository is deleted and a new repository with the same name is created, tags associated with immutable releases from the original repository cannot be reused.
+1. Install root solution and Zygisk
+2. [Download](#download) and install LSPosed
+3. Reboot
+4. Open LSPosed manager from notification
+5. Have fun :)
 
-## Module Information
+## Download
 
-### Module Name *
+- For stable releases, please go to [Github Releases page](https://github.com/LSPosed/LSPosed/releases)
 
-The Description of repository details.
+## For Developers
 
-### Module ID *
+Developers are welcome to write Xposed modules with hooks based on LSPosed Framework. A module based on LSPosed framework is fully compatible with the original Xposed Framework, and vice versa, a Xposed Framework-based module will work well with LSPosed framework too.
 
-The repository name.
+- [Modern Xposed API](https://github.com/LSPosed/LSPosed/wiki/Develop-Xposed-Modules-Using-Modern-Xposed-API)
 
-> The id of the module - has to be the same for all versions!
+We use our own module repository. We welcome developers to submit modules to our repository, and then modules can be downloaded in LSPosed.
 
-### Meta Module *
+- [LSPosed Module Repository](https://github.com/Xposed-Modules-Repo)
 
-The `metamodule` field in `module.json` file.
+## Community Discussion
 
-> Set to `true` if this is a metamodule, otherwise set to `false`.
+- Telegram: [@LSPosed](https://t.me/s/LSPosed)
+- Internal test group: [link](https://t.me/s/LSPosed/287)
 
-### Summary
+## Translation Contributing
 
-The `summary` field in `module.json` file.
+You can contribute translation [here](https://github.com/LSPosed/LSPosed_translations).
 
-> A brief description of the module, will be displayed outside the list, no formatting is supported.
-> Leave blank to use trimmed value of full text as the summary.
+## Credits 
 
-### Description *
-
-Contents in `README.md` file.
-
-### Homepage URL *
-
-The Website of repository details.
-
-> Link to a site where users can get support for and discuss about your module. (e.g. your github issue)
-
-### Source Code URL
-
-The `sourceUrl` field in `module.json` file.
-
-> Link to the source code of your module if you published it.
-
-### Additional Authors
-
-The `additionalAuthors` field in `module.json` file.
-
-| Field | Type | Description | Optional |
-| ----- | ---- | ----------- | -------- |
-| `type` | String | "add" or "remove" | No |
-| `name` | String | The name of author | No |
-| `link` | String | The link of author | Yes |
-
-Example in `module.json`:
-```json
-{
-  "additionalAuthors": [
-    {
-      "type": "add",
-      "name": "tiann",
-      "link": "https://github.com/tiann"
-    },
-    {
-      "type": "add",
-      "name": "Ylarod",
-      "link": "https://github.com/Ylarod"
-    },
-    {
-      "type": "add",
-      "name": "KernelSU-Bot"
-    },
-    {
-      "type": "remove",
-      "name": "someoneInContributorsWillRemove"
-    }
-  ]
-}
-```
-
-> In case you have developed the module together with somebody else, but they don't have a GitHub account. You can write their names and links into the `module.json` file.
-> All `Outside Collaborators` in this repository will be added by default.
-
-### Visibility
-
-If you want to hide the module:
-- **Hide from repository**: Change repository to private in Repository Settings.
-
-## Versions
-
-We use GitHub releases as a version update.
-
-Version Name and Version Code will be parsed from `module.prop` in the module within release assets.
-
-### Version Name *
-
-The `version` field in `module.prop`.
-
-> This is the human-readable version number.
-
-### Version Code *
-
-The `versionCode` field in `module.prop`.
-
-> The technical version, used when checking for updates. Newer versions always need to have a higher number than previous versions.
-
-### Release Type *
-
-Set via the `This is a pre-release` checkbox.
-
-| Type | GitHub Release Type |
-| ---- | ------------------- |
-| Stable (low risk of bugs) | Release |
-| Beta (some bugs to be expected) | Pre-release |
-
-> Classification how risky it is for users to install this version. By default, only stable versions will be shown.
-
-### Changes
-
-The Release Description.
-
-> A list of changes (new features, bugfixes) in this particular version.
+- [Magisk](https://github.com/topjohnwu/Magisk/): makes all these possible
+- [XposedBridge](https://github.com/rovo89/XposedBridge): the OG Xposed framework APIs
+- [Dobby](https://github.com/jmpews/Dobby): used for inline hooking
+- [LSPlant](https://github.com/LSPosed/LSPlant): the core ART hooking framework
+- [EdXposed](https://github.com/ElderDrivers/EdXposed): fork source
+- ~[Riru](https://github.com/RikkaApps/Riru): provides a way to inject code into zygote process~
+- ~[SandHook](https://github.com/ganyao114/SandHook/): ART hooking framework for SandHook variant~
+- ~[YAHFA](https://github.com/rk700/YAHFA): previous ART hooking framework~
+- ~[dexmaker](https://github.com/linkedin/dexmaker) and [dalvikdx](https://github.com/JakeWharton/dalvik-dx): to dynamically generate YAHFA hooker classes~
+- ~[DexBuilder](https://github.com/LSPosed/DexBuilder): to dynamically generate YAHFA hooker classes~

@@ -1,25 +1,14 @@
 {
     "metamodule": false,
-    "summary": "This file is a brief description of the module.\nIt will be displayed outside the list.\nNo formatting is supported.\n",
-    "sourceUrl": "https://github.com/KernelSU-Modules-Repo/org.kernelsu.example",
+    "summary": "Another enhanced implementation of Xposed Framework. Supports Android 8.1 ~ 17. Requires Zygisk enabled.",
     "additionalAuthors": [
         {
-            "type": "add",
-            "name": "tiann",
-            "link": "https://github.com/tiann"
-        },
-        {
-            "type": "add",
-            "name": "Ylarod",
-            "link": "https://github.com/Ylarod"
-        },
-        {
-            "type": "add",
-            "name": "KernelSU-Bot"
-        },
-        {
             "type": "remove",
-            "name": "someoneInContributorsWillRemove"
+            "name": "aviraxp"
+        },
+        {
+            "type": "add",
+            "name": "LSPosed Developers"
         }
     ]
 }
